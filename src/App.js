@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Auth from './Page/Auth/Auth';
+import { Routes, Route } from 'react-router-dom';
+import LogIn from './Component/Login/Login';
+import RegistrationForm from './Component/Registration/RegistrationForm';
+import User from './Component/User/User';
+import { useState } from 'react';
 
 function App() {
+  const [isSignedUp, setSignedUp] = useState(true);
+
+  const callLogin = () => {
+    setSignedUp(true);
+  };
+
+  const callSignUp = () => {
+    setSignedUp(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Routes>
+        <Route path='/' element={<Auth />}>
+          <Route index element={<LogIn />} />
+          <Route path='/login' element={<LogIn />} />
+          <Route path='/reg' element={<RegistrationForm />} />
+        </Route>
+        <Route path='/user' element={<User />} />
+      </Routes>
     </div>
   );
 }
