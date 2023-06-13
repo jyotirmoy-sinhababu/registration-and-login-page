@@ -21,6 +21,7 @@ const LogIn = ({}) => {
     }
   };
   const navigate = useNavigate();
+  console.log(navigate);
   return (
     <form
       onSubmit={(e) => {

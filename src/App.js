@@ -6,16 +6,6 @@ import User from './Component/User/User';
 import { useState } from 'react';
 
 function App() {
-  const [isSignedUp, setSignedUp] = useState(true);
-
-  const callLogin = () => {
-    setSignedUp(true);
-  };
-
-  const callSignUp = () => {
-    setSignedUp(false);
-  };
-
   return (
     <div className='App'>
       <Routes>
